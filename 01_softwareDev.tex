@@ -1,7 +1,6 @@
 \chapter{Software Development Process}
 
-\section{Einführung und Motivation}
-\subsection{Code and Fix}
+\section{Code and Fix}
 Drauf los programmieren, sehen obs funktioniert. Wenn nicht wird es geändert,
 so dass es funktioniert. \\
 
@@ -14,12 +13,12 @@ so dass es funktioniert. \\
     \item Wartbarkeit sehr schwierig (schlechte Doku, keine Struktur)
 \end{itemize}
 
-\subsection{Prozessmodell}
+\section{Prozessmodell}
 Ein Prozessmodell (''Vorgehensmodell'') ist eine abstrakte Repräsentation
 des Software Entwicklungsprozesses. Beschreibt den Prozess aus einer bestimmten
 Perspektive.\\
 
-\textbf{Richtlinien}
+\textbf{Richtlinien:}
 \begin{itemize}
     \item Welche Aktivitäten sollen ausgeführt werden (Wann? In welcher
     Reihenfolge?)
@@ -28,7 +27,7 @@ Perspektive.\\
     werden
     \item Manchmal welche Techniken und Werkzeuge verwendet werden.
 \end{itemize}
-\subsubsection{Vorteil von Prozessmodellen}
+\subsection{Vorteil von Prozessmodellen}
 \begin{itemize}
     \item Klardefinierte Arbeitspakete/Aufgaben $\Rightarrow$ Bessere Verteilung
     auf Team
@@ -40,22 +39,51 @@ Perspektive.\\
 \end{itemize}
 Vorteile hängen jedoch vom konkreten Projekt und den gewählten Prozessen ab.
 
-\section{Wasserfallmodell}
-\mbox{}\newline
-\begin{figure}[!h]
-  \centering
-  \includegraphics[scale=0.3]{wasserfall}
-  \caption{Wasserfall Modell}
-\end{figure}
 
-Schwierig umzusetzen, da quasi unmöglich das gesamte System von Anfang an
-zu spezifizieren. Bei großen Projekten der Planungshorizont viel zu groß.
+\section{Shitty Models}
+\begin{itemize}
+    \item Wasserfallmodell
+    \item V-Modell
+    \item Spiralmodell (Kombination Wasserfall + V Modell)
+\end{itemize}
+Können als Blöcke für Software Entwicklungs Prozesse gesehen werden.
 
+\section{Unified Process, UP}
+\subsection{Phases}
+\begin{itemize}
+    \item Inception (Anfangsphase): Projektumfang klarmachen, Vision und Business
+    Case
+    \item Elaboration (Ausarbeitungsphase): Hauptarchitektur bauen, Elemente mit
+    hohem Risiko lösen, meisten Anforderungen festlegen, allgemeinen Zeitplan
+    schätzen
+    \item Construktion (Konstruktionsphase): inkrementelle Implementierung der
+    restlichen Elemente mit geringerem Risiko
+    \item Transition (Übergabephase): Beta Tests, deployment
+\end{itemize}
+\subsection{Disciplines}
+\begin{itemize}
+    \item Business modelling: Verstehen und Kommunizieren der Struktur der Organisation
+    wo das System verwendet wird.
+    \item Requirements
+    \item Design
+    \item Implementation
+    \item Test
+    \item Deployment
+\end{itemize}
+\section{Rational Unified Process RUP}
+Bestimmte Implementierung des UP. Zustätzlch zu Phasen und Disciples gibt es:
+\begin{itemize}
+    \item Rollen, wer macht was?
+    \item Activities/Tasks, wie wird es gemacht?
+    \item Artifacts/work products, was wird gemacht?
+\end{itemize}
 
-
-
-\section{Iterative und Inkrementelle Prozesse}
-
-\section{Spiral Model}
-
-\section{Unified Process}
+\subsection{Best Practices}
+\begin{itemize}
+    \item software iterativ entwickeln
+    \item Anforderungen managen
+    \item component-basierte Architekturen verwenden
+    \item Software visuell modellieren
+    \item Software auf qualität testen
+    \item Kontrolle wird zu Software
+\end{itemize}

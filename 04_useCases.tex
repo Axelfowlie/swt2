@@ -1,1 +1,65 @@
 \chapter{Use Cases}
+Use Cases sind Notationen um Textuell eine Interaktion von
+zwei Parteien festzuhalten. (Nutzer + System)
+
+\section{Elementary Business Process, EBP}
+Im business process engineering ist ein EBP:
+\begin{itemize}
+    \item Eine Aufgabe
+    \item ausgeführt von einer Person
+    \item an einem Ort zu einer Zeit
+    \item als Antwort auf ein Business Event
+    \item welches zu messbaren business Wert beisteuert
+    \item und Daten in einem konsistenen Zustand hinterlässt
+\end{itemize}
+
+\section{Use case Goal Levels}
+\begin{itemize}
+    \item High Level Summary (oftmals ein Business process)
+    \item User goal (= EBP)
+    \item Sub(function)
+    \item Too low (=feature oder Systemoperation)
+\end{itemize}
+
+\section{Schlüsselbegriffe}
+\begin{itemize}
+    \item \textbf{stakeholder}: Person/Organisation das (in)direkten Einfluss
+    auf die Anforderungen des Systems hat
+    \item \textbf{actor}: Entitiät mit Verhalten
+    \item \textbf{primary Actor}: initiiert Interaktion
+    \item \textbf{use case model}: set aller use cases und verwandter Diagramme
+    \item \textbf{scenario}: eine Use Case Instanz
+    \item \textbf{use case}: Sammlung ähnlicher erfolgreicher und fehlgeschlagener
+    Szenarien welche einen actor beschreiben, der das System nutzt um ein Ziel
+    zu erreichen.
+    \item \textbf{include}: Pflicht, Base Case ist abhängig von included case.
+    Beschreiben Untersequenz die immer oder manchmal passieren.
+    \item \textbf{extend}: Optional, Erweiterung
+\end{itemize}
+
+\section{Use Cases finden}
+\begin{enumerate}
+    \item System Boundarys finden
+    \item Primary Actor identifizieren
+    \item Für jeden anderen actor user goals rausfinden
+    \item Use cases definieren, die user goals erfüllen
+\end{enumerate}
+
+\section{Use Case Sections}
+\begin{enumerate}
+    \item \textbf{Preface Elements}:
+    \item \textbf{Stakeholders und Interssen Liste}: Grenzt System ein und
+    schlägt vor, was es tun soll
+    \item \textbf{Preconditions}: Zustand immer true, wird angenommen
+    \item \textbf{Postcondition}: Was true ist, wenn use case erfolgreich
+    abgeschlossen
+    \item \textbf{Main Success Scenario}:basic flow, beschreibt den typischen
+    erfolgreichen Pfad der die Interessen der Stakeholder erfüllt
+    \item \textbf{Extensions}: alternative flows, beschreibt alel anderen scenarios
+    oder Zweige, egal ob Successo der fail
+    \item \textbf{Special requirements}: hält fest, dass eine nicht-funktionale
+    Anforderung, Qualitätsattribut oder Constraint spezifisch zu einem Use Case
+    gehört.
+    \item \textbf{Technology and Data Variation}: beschreibt technische Variationen
+    wie Dinge gemacht werden müssen statt wie.
+\end{enumerate}

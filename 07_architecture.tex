@@ -1,1 +1,114 @@
 \chapter{Software Architecture}
+
+Eine Software Architektur ist die wichtige Struktur des Systems.
+Sie ist ein Set von Design Entscheidungen, die schwer rückgängig zu
+machen sind oder sehr früh gefällt wurden. Umfasst die Struktur des Systems
+mit Komponenten, deren Beziehungen und deren Abbildung auf ausführende Umgebungen.
+
+\section{Strukturen, Sichten und Standpunkte}
+\begin{compactitem}
+    \item \textbf{View, Sicht}: Repräsentation einer ganz konkreten Menge von
+    Architektur Elementen und deren Beziehungen.
+    \begin{compactitem}
+        \item Software Architektur Dokumentation.
+    \end{compactitem}
+    \item \textbf{Struktur}: Menge von Elementen selber, wie sie im System stecken.
+    Tatsächliche Struktur.
+    \begin{compactitem}
+        \item Software Architektur
+    \end{compactitem}
+    \item \textbf{View Points, Standpunkte}: Gruppierung von Sichten abhängig
+    ihrer Anliegen.
+\end{compactitem}
+
+Jedes Softwaresystem hat eine Softwarearchitektur, nicht jedes System hat eine
+Software Architektur Dokumentation. Selbst wenn sie existiert, könnte sie
+inkonsistent zur Softwarearchitektur sein.
+
+\section{Vorteile einer expliziten Architektur}
+\begin{compactitem}
+    \item Stakeholder Kommunikation: Besserer Kommunikation der Beteiligten
+    \item System Analyse: Analyse ob System den nicht-funktionalen Anforderungen
+    gerecht wird.
+    \item Large-Scale Reuse: Architektur könnte in anderne Systemen wiederverwendet
+    werden. Einfachere Einbindung existierender Komponenten
+    \item Project Planung: Kosten abschäzung, Milestone organisation, Abhängigkeiten
+    feststellen, Änderungen besser analysieren, Staffing.
+\end{compactitem}
+
+
+\section{Einflussfaktoren}
+\begin{compactitem}
+    \item \textbf{Anforderungen} (quality req., constraints)
+    \begin{compactitem}
+        \item Performance, Security, Safety, Availability, Maintainability,
+        Scalability
+    \end{compactitem}
+    \item \textbf{Re-Use} (architectres, subsystems, components, styles, patterns)
+    \item \textbf{Organisation} (Team size, team number, experience, organisation structure)
+\end{compactitem}
+
+\section{Reuse Terminology}
+\begin{compactitem}
+    \item \textbf{Architektur Pattern}: Prinzipielle Lösungsstrukturen, die für
+    ein Element der Architektur durchgängig und mit weitgehendem Verzicht auf
+    ausnahmen angewandt werden.
+    \item \textbf{Architektur Style}: Lösung eines wiederkehrenden Problems, das
+    Anwendungen auf dem Architekturlevel findet. Es passiert die Grenzen von
+    Architekturelementen und beschäftigt sich häufig mit grundlegenden architekturellen
+    Aspekten.
+    \item \textbf{Referenzarchitektur}: Abstrakte Software-architektur, die Strukturen
+    und Typen von Software-Elementen, sowie deren erlaubte Interkation und
+    Verantwortlichkeiten für einen Anwendungsbereich definiert. Die Strukturen
+    sind jeweils für alle Systeme innerhalb einer Domäne anwendbar.
+\end{compactitem}
+
+\section{Layered Architecture}
+\mparagraph{Design Prinzipien}
+\begin{compactitem}
+    \item Trennung von Concerns/Anliegen
+    \item single responsibility principle
+    \item Information Hiding (only what is hidden can be changed without risk)
+    \item Principle of Least Knowledge
+    \item Don't repeat yourself (DRY)
+    \item Minimiere Design im Voraus (so weit wie berechtigt)
+\end{compactitem}
+
+\mparagraph{Schichten}
+\begin{compactitem}
+    \item \textbf{UI}: Repräsentation der Daten an den Nutzer. (view)
+    \item \textbf{Application}:Verteilt einkommende Anfragen, kontrolliert
+    den Arbeitsfluss. Gute Regel: Ein Controller/Facade pro Use Case. (Control)
+    \item \textbf{Domain}: Beinhaltet das Domain Modell und die Business Logik.
+    \item \textbf{Infrastructure}: Business Infrastructure, Technical Services,
+    Foundation (Model)
+\end{compactitem}
+
+\mparagraph{Vorteile}
+\begin{compactitem}
+    \item verringert ungewollte Komplexität
+    \item verbessert Veränderbarkeit
+    \item Klare Trennung von Anliegen/Concerns
+    \item Unabhängige Austauschbarkeit
+    \item Vereinfacht Testen
+\end{compactitem}
+\mparagraph{Nachteile}
+\begin{compactitem}
+    \item Erhöht normalerweise Anzahl der Klassen, durch Facaden oder
+    Daten Transfer Objekte.
+\end{compactitem}
+
+
+\textbf{Grenze Architektur und Design Pattern: Sobald ein Pattern die Grenze von
+ Architektur-Elementen überschreitet, kann es als Architektur-Pattern betrachtet werden.
+}
+
+\section{Facade und Observer}
+\mparagraph{Facade}
+Bietet einheitliche und vereinfachte Schnittstelle zu einer Menge von
+Schnittstellen eines Subsystems. \\
+Verringert die Kopplung zu vieler Klassen.
+
+\mparagraph{Observer}
+Verhaltensmuster und dient der Weitergabe von Änderungen an einem Objekt an
+von diesme Objekt abhängige Strukturen weiter.

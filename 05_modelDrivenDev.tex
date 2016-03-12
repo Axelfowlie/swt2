@@ -1,1 +1,72 @@
 \chapter{Model Driven Development}
+
+\section{Ziele und Vorteile}
+\mparagraph{Ziele}
+\begin{compactitem}
+    \item Bessere Platform Unabhängigkeit und Kompatibilität
+    \item Schnelleres Entwickeln durch Code Generierung
+    \item Bessere Software qualität durch vorherige Analysen
+    \item Besserer Wiederverwendung
+    \item Besserer ,,Separation of concers'' durch verschiedener Modelle
+    \item Komplexität nicht verringern, sondern auf einem anderne Level zu
+    managen durch Abstraktion
+\end{compactitem}
+\mparagraph{(erhoffte) Vorteile}
+\begin{compactitem}
+    \item Kostenreduzierung
+    \item Kürzere time to market
+    \item Mehr Variabilität
+\end{compactitem}
+
+\section{Arbeiteraufteilung bei MDSD}
+\begin{compactitem}
+    \item \textbf{Programmer}: Nicht mehr notwendig
+    \item \textbf{Domain Expert}: Entwickelt Software. Weiss wie Problem aussieht,
+    was rauskommt, was zu tun ist.
+    \item \textbf{Technology Expert}: Liefert Methoden und Tooling damit Domain
+    Expert arbeiten kann. Überlegung von Meta Modellen, Modellierung der Plattform
+    und Transformationen
+\end{compactitem}
+
+\section{Warum Modelle?}
+\begin{compactitem}
+    \item Verringern Komplexität bzw. Fokus auf das Wesentliche
+    \item erhöht Analysierbarkeit
+    \item Besser mit Komplexität umgehen
+    \item Verwendbar vom Domain Expert
+    \item Erhöhte Kommunikation
+    \item evtl eine immer konsistene Dokumentation
+\end{compactitem}
+
+\section{Definition Modell}
+Eine formale Repräsentation einer
+Wiedergabe eines Originals (natürlich oder künstlich) mit dessen Attributen und
+Beziehungen (Reproduction). \\
+Es werden nicht alle Attribute verwendet, nur die relevanten (Abstraktion).
+Wird für einen bestimten Zweck verwendet (wer, wann und wozu benutzt werden?)
+(Pragmatik)
+
+\section{Meta Modell}
+Ein Meta-Modell ist ein Modell, das die Elemnte  und Beziehungen einer
+Modellierungssprache sowie Einschränkungen und Regeln wie valide Modelle erstellt
+werden beschreibt. Umfasst
+\begin{compactitem}
+    \item \textbf{Abstrakte Syntax}: Was sind die Elemnte und was sind die Beziehungen.
+    \item \textbf{Konkrete Syntax}: Repräsentation. Wie schreibe ich etwas hin.
+    \item \textbf{Statische Semantik}: Prüfung vor konkreter Modellinstanz möglich.
+    Was muss für jede Modllinstanz gelten.
+    \item \textbf{Dynamische Semantik}: Was bedeutet dieses eine Meta Modell?
+\end{compactitem}
+
+\section{Object Constraint Language}
+Ausdruck von Einschränkungen und Regeln von Meta Modellen.
+Genaue Spezifikationen in Transformationen nutzen.
+Eine beschreibende Sprache, welche folgende Spezifikationen erlaubt:
+\begin{compactitem}
+    \item Invarianten
+    \item Vor und Nachbedingungen
+    \item Initialwerte
+    \item Ableitungen
+    \item Body Definitions
+    \item Guards
+\end{compactitem}

@@ -1,1 +1,96 @@
 \chapter{Software Components}
+
+Eine Komponente ist ein Baustein, der zusammengesetzt, angepasst und
+eingesetzt werden, ohne sein inneres zu kennen.
+Modularer Austauschbarer Teil eines Systems. \\
+
+Ein Java Objekt kann keine Komponente sein, da das Black-Block Prinzip
+bei der Vererbung verletzt wird.
+
+\section{Component Modell}
+Ein Komponentenmodell definiert:
+\begin{compactitem}
+    \item Was ist eine Komponenten?
+    \item Wie bietet diese Komponente ihre Dienste an?
+    \item Wie sind Komponenten verbunden und zusammengesetzt?
+    \item Wie kommunizieren Komponenten?
+    \item Wo findet man Komponenten?
+\end{compactitem}
+
+\section{Service Oriented Architecture, SOA}
+Elemente aus einem Web Service System haben eine von 3 Rollen:
+\begin{compactitem}
+    \item Service Provider
+    \item Service Broker
+    \item Service Requestor
+\end{compactitem}
+
+\section{Palladio Component Model}
+Ist eine Domain Spezifische Modellierungs Sprache (DSL) zur frühzeitigen
+Performancevorhersagen.
+
+\subsection{Komponentenbeschreibung, Modelle und Entwickler}
+\begin{itemize}
+    \item \textbf{Komponenten/Component Model}: Code der Komponenten
+    \begin{compactitem}
+        \item \textbf{Komponententwickler} spezifiziert und entwickelt Komponenten
+        \item ... Spezifiziert Datentypen
+        \item ... Baut zusammengesetzte Komponenten
+        \item ... Baut parametrisierte Komponenten
+        \item ... Lagert Moddeling und Implementierungs Artefakte in Repositorys
+    \end{compactitem}
+    \item \textbf{Komposition/Composition Model}: Verschaltung/Vernetzung verschiedene  Komponenten
+    \begin{compactitem}
+        \item \textbf{Softwarearchitekt}: Spezifiziert eine Architektur (System Modell)
+        \item ... spezifiziert neue Komopnenten und Schnittstellen.
+        \item ... Benutzt Architekturstyles und Patterns
+        \item ... trifft Design Entscheidungen
+        \item ... macht Performancevorhersagen
+        \item ... delegiert Implementierung
+        \item ... leitet den gesamten Entwicklungsprozess
+    \end{compactitem}
+    \item \textbf{Resourcen Environment/Deployment Model}: Hardware
+    \begin{compactitem}
+        \item \textbf{System Deployer}: Modelliert Resourcenumgebung (Middleware, OS, Hardware...)
+        \item ... Modelliert die Allokation von Komopnenten zu Resourcen
+        \item ...Wartet das System
+        \item ... Richtet Resourcenumgebung ein
+        \item ... Deployed Komponenten
+    \end{compactitem}
+    \item \textbf{Usage Profile/Usage Model}: Wieviel Benutzer? Wieviel Daten?
+    Welche Daten? etc.
+    \begin{compactitem}
+        \item \textbf{Domain Expert}: kennt sich mit der business domain aus.
+        \item ... spezifiziert Nutzerverhalten.
+    \end{compactitem}
+\end{itemize}
+
+Mit den Einflussfaktoren lässt sich die Antwortzeit, die Resourcennutzung und der
+Durchsatz berechnen.
+
+\subsection{Vorteile}
+\begin{compactitem}
+    \item Erweiterung von Legacy Software Systemen
+    \item Performancevorhersagen
+    \item Analytisch lösbar
+    \item Simlation
+\end{compactitem}
+
+\subsection{Sichten in Palladio}
+\begin{compactitem}
+    \item \textbf{Strukturel}: Informationen über statische Eigenschaften des Systems.
+    Wird vom Component Developer und Softwarearchitekt modelliert. (component view, assembly view)
+    \item \textbf{Verhalten}: Ablaufdiagramme von Verhalten. Wird vom Component
+    Developer (und Softwarearchitekt) modelliert. (intra und inter component, behaviour )
+    \item \textbf{Deployment}: Information wie wird System eingesetzt wird.
+    Modelliert vom System Entwickler (allocation)
+    \item \textbf{Decision}: Wird durch alle 3 Rollen modelliert
+\end{compactitem}
+
+\subsection{Service Effect Specification, SEFF}
+\begin{compactitem}
+        \item Beschreibt die externen sichtbaren Aktionen eines Komponente erbrachten Diensts.
+        \item Abstraktion interner Verhalten
+        \item Beschreibt Zusammenhang zwischen bietender und benötigender Komponentenseite
+        \item Parametrisierung von Resourcenverbrauch
+\end{compactitem}

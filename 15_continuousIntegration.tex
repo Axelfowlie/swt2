@@ -1,1 +1,59 @@
+% !TEX root = swt2.tex
+
 \chapter{Continuous Integration}
+
+\section{Schlüsseleigenschaften}
+Continuous Integration ist eine Software Development Praxis, bei der Mitglieder eines Teams
+ihre Arbeit regelmäßig (mindestens täglich) integrieren. Jede Integrierung wird durch ein automatischen
+Build verifiziert und getestet.
+
+\begin{enumerate}
+    \item \textbf{Manuell}
+    \begin{compactenum}
+        \item Verändere Code
+        \item Teste Lokal
+        \item Änderungen commiten
+    \end{compactenum}
+    \item \textbf{Automatisiert}
+    \begin{compactenum}
+        \item Materialisierung von Abhängigkeiten
+        \item Compilierung
+        \item Testen: Funktional und Qualität (Performance, code coverage etc.)
+    \end{compactenum}
+    \item Automatisiertes hilfreiches Feedback
+    \item Manuelles fixen von kaputten Builds
+\end{enumerate}
+
+\section{Vorteile}
+\begin{itemize}
+    \item \textbf{Risiko Verringerung}
+    \begin{compactitem}
+        \item Schneller Fehlerfindung
+        \item Frührere Fehlerbehebung
+        \item Eliminiert Unsicherheiten
+    \end{compactitem}
+    \item \textbf{Reduziert repetetive Prozesse}
+    \begin{compactitem}
+        \item Testen
+        \item Kompilieren
+        \item Bauen und Deployment
+    \end{compactitem}
+    \item \textbf{Schnelle Deployment von Software}: Coninuous Delivery
+    \item \textbf{Produktive Kommunikation im Entwicklerteam}
+\end{itemize}
+
+\section{Best Practices}
+\begin{compactitem}
+    \item Versioniere alle relevanten Entwicklungsartefakte in einem zentralen Repository
+    \item Vermeide duplicate (configuration) Code
+    \item Design build for fast feedback
+    \item Build for any environment. Build job sollte für folgende Deployment Artefakte produziert werden:
+    \begin{compactitem}
+        \item Private Build
+        \item Integration Build
+        \item Release Build
+    \end{compactitem}
+    \item Wenn möglich: Ein Build pro Deploymenteinheit
+    \item Verwende kontinuierliche Feedback Mechanismen (Was und wo ist Build kaputt gegangen, Entwickler
+    benachrichtigen)
+\end{compactitem}

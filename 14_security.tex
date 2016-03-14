@@ -1,1 +1,89 @@
+% !TEX root = swt2.tex
+
 \chapter{Software Security}
+
+Unsichere Software kostet Geld aufgrund von Ausfällen, Zeit und Kosten zum behandeln von Fehlern,
+Dataleaks, zusätzliche Sicherheitsmaßnahmen wie Firewall, Antivirus, Spamfilter.
+
+\textbf{Hauptziele:}
+\begin{compactitem}
+    \item \textbf{Vertraulichkeit}: Persönliche und Firmendaten
+    \item \textbf{Verfügbarkeit} und \textbf{Integrität} von Daten und System
+\end{compactitem}
+\textbf{Andere Ziele}
+\begin{compactitem}
+    \item User authentication
+    \item Traceability und Auditing
+    \item Monitoring
+    \item Anonymity
+\end{compactitem}
+
+\section{Sicherheits Anforderungen finden}
+\begin{compactitem}
+    \item Ziele festhalten (meistens zu schwammig)
+    \item Finde potentielle \textbf{misuse cases}
+    \item System Kontext in Betracht nehmen
+    \item Thread Modelling mit Checkliste
+\end{compactitem}
+
+\section{Prinzipien}
+\begin{compactenum}
+    \item Schwächstes Glied sichern
+    \item Schutz über mehrere Schichten
+    \item Fails sichern, Exception Handeln
+    \item Sicher by default
+    \item Least Priviliege (so wenig Privilegien wie möglich und so kurz wie möglich)
+    \item Keine Sicherheit durch Unklarheit/obscurity
+    \item Minimiere Angriffsfläche (weniger Code ist besser, vermeide ,,dead code'')
+    \item Privilegierter Kern: Isolierter Code mit Sicherheits Privilegien
+    \item Input-Validierung undd Ausgabe-Encoding
+    \item Keine Vermischung von Daten und Code
+\end{compactenum}
+
+\section{Testing Guideline}
+Security testing $neq$ Functional testing
+
+\begin{compactenum}
+    \item Fokus auf identifizierte Risiken
+    \item Code Coverage Metrik um Dead Code ausfindig zu machen
+    \item Code und System Reviews
+    \item Evaluiere Sicherheit in jeder Phase
+    \item Verschiedene Quellen für Testfälle
+    \item Standart Testumgebung, dass die Basics testet
+    \item Tests durch Sicherheitsexperten als Black oder White Box
+\end{compactenum}
+
+ \section{Sicherheits Probleme}
+ \subsection{Race Conditions}
+\textbf{Problem}: Threads interagieren, Annahme muss true für gewisse Zeit sein, was sie nicht sein muss. \\
+\textbf{Lösung}: Reduziere Angriffsfenster, Nutzen von File Handler oder Descriptor. Check und Atomare
+Operationen
+
+ \subsection{Buffer Overflow}
+ Angreifer kann Schadcode durch Manipulation des Buffer ausführen. Besonders gefährlich in C da
+ Overflows nicht gecheckt werden.
+ \subsection{SQL Injection}
+ \textbf{Lösung}: Input reinigen, nach validen Inputs schauen, nicht nach Invaliden
+
+
+\section{Kryptografie}
+
+Bietet Methoden und Protokolle, wenn mehrere Parties involviert sind und mindestens eine Partei
+nicht vertrauenswürdig für mindestenseine andere Partei ist.
+
+\subsection{Klassische Ziele}
+\begin{compactitem}
+    \item Confidentialy
+    \item Integrity
+    \item Authenticity
+    \item Non-repudiability
+\end{compactitem}
+
+\subsection{Pseudo Randomness}
+Kryptografische MEthoden brauchen gute Zufallszahlen, aber eingbaute Pseudo Random Number Generator liefern
+keine gescheiten Zufallszahlen
+\begin{enumerate}
+    \item Verwende kryptografisch sichere PRNG
+    \item Seed muss schwer zu erraten sein und genug Entropy liefern.
+
+\end{enumerate}

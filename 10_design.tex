@@ -1,1 +1,49 @@
 \chapter{Software Design}
+Design Class Diagrams müssen Definitionen der Software Klassen zeigen.
+
+\section{Responsibility-Driven Design}
+
+Softwareobjekte sind ähnlich zu Echtwelt Objekten. Daher ist wichtige Aufgabe Software Objekten
+Verantwortungen zuzuweisen. Verantwortung ist abhängig von seinem Verhalten.
+\begin{compactitem}
+    \item doing responsibilities: doing something itself, controlling and coordinating activities
+    in other objects
+    \item knowing responsibilities: knowing about private encapsulated data, knowing about related
+    objects, knowing about things it can derive or calculate
+\end{compactitem}
+
+\mparagraph{Zuweisung}
+Verwende Operation Contracts der System Operationen. Nutze diese zum finden von Interaktionen zwischen
+Objekten.
+
+\section{Dynamic und Static Design Model}
+
+Startpunkt eines Design Class Diagrams.
+Interaktion zwischen einzelne Objekten modellieren. Wo weise ich Verantwortungen zu?
+\mparagraph{Identifizieren}
+\begin{compactenum}
+    \item Klassen, die in der Softwarelösung teilnehmen
+    \item Zeichen Klassendiagramm dieser lassen
+    \item Identifiziere Klassenmethoden durch Analyze des Interaktionsdiagramm
+\end{compactenum}
+
+Static Design Model aus Dynamic Design Model Schritt für Schritt ableitbar.
+
+\section{General Responsibility Assignemnt Software Patterns, GRASP}
+
+Abgesehen von dem Fakt, dass man ywischen Domäne und Softwareobjekten eine geringe Repräsentationsdistanz
+haben möchte (Design Konzept lässt sich nahtlos vom Domänen Konzept ableiten), will man wissen,
+wie man Interaktions Diagramme systematisch erstellt.
+\begin{compactenum}
+    \item Informations Experte
+    \item Creator: Welches Objekt ist dafür zuständig X zu erzeugen?
+    \item Controller: Verantwortung für Empfangen und Handhaben von System Event Nachrichten
+    \item Low coupling : Versuche eine geringe Verkoppelung im System zu haben.
+    \item High Cohesion
+    \item Polymorphism: Composition statt Inheritance
+    \item Pure Fabrication: Künstliche Klasse erfinden, wenn Domänen objekt nicht existiert.
+    \item Indirection: Adapterobjekt als Mediator zwischen Objekten falls Verantwortungszuweisung zu
+    high coupling oder ow cohesion führt.
+    \item Protected Variations: informationen verstekcen.
+
+\end{compactenum}

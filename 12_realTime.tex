@@ -1,1 +1,118 @@
-\chapter{Real-time Development & Patterns}
+\chapter{Real-time Development und Patterns}
+
+\section{Echtzeit Systeme}
+Meistens Systeme, die ihre Umgebung überwachen und kontrollieren.
+Softwaresystem, bei dem die korrekte Funktionalität abhängig vom erzeugten Ergebnis und er
+Zeit abhängig ist.
+
+\textbf{Sensoren}: Sammelt Daten von Systemumgebung\\
+\textbf{Aktorik}: Verändert dei Systemumgebung\\
+\textbf{Zeit ist kritisch!}: Echtzeitsysteme MÜSSEN innerhalb einer gewissen Zeit antworten.
+
+\subsection{Stimulus Response System}
+Gegeben ein Stimulus, System muss in bestimmter Zeit antworten
+
+\textbf{periodisch}: feste Intervalle\\
+\textbf{aperiodisch:}: Unvorhersehbare Zeitpunkte z.B Interrupt
+
+\subsection{Monitoring und Kontrollsysteme}
+Wichtige Klasse eines Echtzeitsystems.
+
+\textbf{Monitor}: System macht etwas, wenn Sensorwerte nicht richtig sind
+\textbf{Control}: System kontrolliert kontinuierlich die Aktionen abhängig des Sensorwertes.
+
+\subsection{Echtzeit Betriebssystem}
+auf Echtzeitsysteme spezialisierte Betreibssysteme.
+brauchen: \\
+\begin{compactitem}
+    \item Echtzeit Uhr: Gibt Information für Prozess Scheduling
+    \item Interrupt Handler: kümmert sich um aperiodische Anfragen
+    \item Scheduler: Wählt den nächsten auszuführenden Prozess aus
+    \item Resource Manager: allokiert Speicher und Prozessorresourcen
+    \item Dispatcher: Starte Prozessausführung
+\end{compactitem}
+
+\mparagraph{Prozess Management}
+Echtzeitsystem muss in der Lage sein \textbf{Interrupt level priority} und \textbf{Clock level priority}
+zu unterstützen.
+
+
+\subsection{Scheduling}
+\begin{itemize}
+    \item \textbf{Firist in First out, FIFO}: dynamisch, non pre-emptive, ohne Prio.
+    \item \textbf{Fixed Priorities}: dynamisch, statische Prio
+    \item \textbf{Earlierst-Deadline-First-Schedule, EDF}: dynamsich, dynamische Prio.
+    \item \textbf{Least-Laxity-First-Scheduling, LLF}: dynamisch, dynamische Prio.
+    \begin{compactitem}
+        \item now + laxity + remaining processing time = deadline
+        \item laxity = deadilne - now - remaining processing time. negative laxity heisst, task schafft
+        es nicht bis zur Deadline
+    \end{compactitem}
+    \item \textbf{Time-Slice-Scheduling}: dynamisch, pre-emptive, ohne Prio
+\end{itemize}
+
+
+\subsection{Echtzeit System Design Prozess}
+\begin{compactenum}
+    \item Identifiziere Stimuli und zugehörige Antworten
+    \item Definiere Zeit-constraints
+    \item Wähle Ausführungsplattform
+    \item Verschiedene Stimuli und generierten Antworten in Prozesse zusammenfassen. (grobe Strukturierung des Systems)
+    \item Entwerfe Algorithmus für Verarbeitung
+    \item Entwerfe Scheduling System
+\end{compactenum}
+
+
+\section{RT Patterns}
+\subsection{Dimensionen der Dependability}
+\begin{compactitem}
+    \item Availability: Liefern wenn angefordert
+    \item Reliability: Funktionieren wie spezifiziert
+    \item Safety: Keine Gefahr für Mensch und Umgebung
+    \item Security: Datensicherheit, Schutz vor Fremdzugriff
+\end{compactitem}
+
+\textbf{Fail-Safe-State}: Zustand in dem Gefahr ausgeschlossen werden kann.
+
+\subsection{Fault-Error-Failure-Chain}
+\begin{compactitem}
+    \item \textbf{Fault}: Defekt im System, muss nicht zu Ausfall führen.
+    \item \textbf{Error}: Abweichung zwischen erwartetem und tatsächlichem Verhalten innerhalb der
+    Systemgrenzen.
+    \item \textbf{Failure}: Verhalten, das nicht Erwartungen entspricht außerhalb der Grenzen.
+    \begin{compactitem}
+        \item Systematischer Fehler: Fehler bei Design oder Build Time
+        \item Random Fehler: Irgendwas ist kaputt gegangen. Transient gehen weg nach ner Zeit. Persistent
+        bleiben bis was gemacht wird (z.B Kaputte Hardware)
+    \end{compactitem}
+\end{compactitem}
+
+\subsection{Patterns}
+\textbf{Channel}: ,,Röhre'', die sequenziell Daten von einem Eingangswert zu einem Ausgangswert transformiert.
+
+Mehrere Channels verbessern Qualität:
+\begin{compactitem}
+    \item \textbf{Performance}: Erhöhter Durchsatz durch mehrere identische Channels
+    \item \textbf{Reliability}: Mehrere Channels können auf unterschiedilche Weise operieren um
+    Fault tolerance zu erreichen.
+    \item \textbf{Safety}: Erhöhte Safety durch zusätzliche fault identifiaction und Safety measures.
+\end{compactitem}
+
+Verschiedene Patterns
+\begin{itemize}
+    \item \textbf{Protected Single Channel}: Safety ohne Redundanz durch Error Detection auf Channel.
+    \item \textbf{Homogeneous Redundacy}: Schutz gegen Random Faults, Backup Channel nötig (bei Fehler umschalten)
+    \item \textbf{Triple Modular Redundacy}: Schutz gegen Random Faults. Am Ende Vergleich mit Comparator.
+    \item \textbf{Heterogeneous Redundacy}:Schutz gegen Random und Systematic Faults (nur wenn der selbe Fehler
+    nicht in beiden Versionen gemacht wurde). Wie Homogenous aber unabhängige voneinander entworfene
+     und implementierte Channels.
+    \item \textbf{Monitor-Actuator Pattern}: Schutz gegen Random und Systematic Faults wenn Fail safe
+    Zustande vorhanden. Unabhängige Überprüfung durch 2. Kanal. Bei Problem Shutdown bzw in Fail safe
+    Zustand überführung
+    \item \textbf{Sanity Check Pattern}: Schutz gegen Random und Systematic Faults wenn Fail safe
+    Zustand vorhanden. Nur grobe Abschätzung ob Hauptkanal noch richtig ist im 2. Kanal
+    \item \textbf{Watchdog Pattern}: Leichter Schutz gegen Zeitbasierte Fehler und Erkennung von Deadlocks
+    wenn Fail Safe State vorhanden. Channel sendet Heartbeat zu Watchdog. Kein Heartbeat = Fehler.
+    \item \textbf{Safety Executive Pattern}: Safety für komplexe Systeme durch erreichen eines Fail
+    Safe Zustandes.
+\end{itemize}

@@ -1,1 +1,67 @@
 \chapter{Clean Code}
+Clean code ist:
+\begin{inparaitem}
+    \item Elegant und Effizient
+    \item Minimale Abhängigkeiten
+    \item Macht eine Sache gut
+    \item Einfach und Direkt
+    \item gut lesbar
+    \item Einfach zu erweitern
+    \item Versteckt nicht die Absichten des Designers
+\end{inparaitem}
+
+\section{SOLID}
+\begin{compactenum}
+    \item \textbf{Single Responsibility Principle}: Jede Klasse soll nur eine einzige Verantwortung haben.
+    \item \textbf{Open Closed Principle}: Möglichkeit der Erweiterungen/Änderung (offen) ohne Verhalten
+    zu ändern (geschlossen)
+    \item \textbf{Liskow Substitution}: Eine Instanz einer abgeleiteten Klasse muss sich so verhalten, sodass
+    jemand Denkt ein Objekt der Basisklasse vor sich zu haben, ohne durch unerwartetes Verhalten
+    überrascht zu werden, wenn es sich doch um ein Objekt des Subtyps handelt. Funktionen die Pointer
+    auf Basisklassen verwenden müssen Objekte von abgeleiteten Klassen verwenden können.
+    \item \textbf{Interface Segregation Principle}: Nutzer sollen nicht von Schnittstellen abhängig sein,
+    die sie nicht brauchen. Aufteilung grosser Interfaces. Die Aufteilung soll gemäß der Anforderungen
+    der Clients an die Interfaces gemacht werden, sodass die neuen Interfaces genau auf die
+    Anforderungen der einzelnen clients passen.
+    \item \textbf{Dependency Inversion Principle}:
+    \begin{compactitem}
+        \item High Level Moduls sollen nicht von Low Level Moduls abhängen, sondern von Abstraktionen
+        \item Details sollen von Abstraktionen abhängen, nicht umgekehrt
+    \end{compactitem}
+\end{compactenum}
+
+\section{Regeln}
+\mparagraph{Gesetz von Demeter},,don't talk to strangers''
+Objekte sollen nur mit Objekten aus der unmittelbaren Umgebung kommunizieren und keine Information
+über deren inneren Aufbau besitzen.
+
+\mparagraph{Boy Scout Rule}
+Lasse Code sauberer zurück als du ihn aufgefunden hast.
+
+\mparagraph{Principle of least surprise}
+Funktionen oder Klassen sollen so implementiert sein, dass das Verhalten von anderen genauso
+erwartet wird.
+
+\mparagraph{Kommentare}
+Kommentare sollen folgende Funktione besitzen
+\begin{compactitem}
+    \item Erklärend
+    \item Warnend
+    \item Informativ
+\end{compactitem}
+
+\mparagraph{Don't repeat yourself, DRY}
+Dupliziere keinen Codeabschnitte. Copy Pasta verringert die Wartbarkeit, Verständlichkeit und
+Weiterentwicklung.
+
+\mparagraph{Keep it simple stupid, KISS}
+Halte code einfach wie möglich, aber nicht einfacher
+
+\mparagraph{You ain't gonna need it, YAGNI}
+Implementiere nur benötigte Features
+
+\mparagraph{Single Level of Abstraction, SLA}
+\begin{compactitem}
+    \item Aussagen in Methoden selbe Ebene
+    \item Methoden in Klassen: Depth-First
+\end{compactitem}

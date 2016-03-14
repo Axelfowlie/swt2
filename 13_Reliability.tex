@@ -1,1 +1,61 @@
 \chapter{Reliability and Statistical Testing}
+\section{Software Reliability}
+
+Software Reliabilty ist die Wahrscheinlichkeit einer Fehlerfreien Operation
+eines Computercodes zu einem bestimmten Zeitpunkt und Input.
+
+\begin{compactitem}
+    \item \textbf{Probability of Failure on demand (POFOD)} = 1 - Reliability =
+    \item \textbf{Rate of occurence of failures (ROCOF)} = Anzahl der Fehler in der
+    gegebenen Zeit
+    \item \textbf{Mean Time Between Failures (MTBF)} = Zeit zwischen Ausfällen
+    \item \textbf{Mean Time To Recover} = Zeit bis System wieder lauffähitting
+    \item \textbf{Verfügbarkei} = MTBF / MTBF+MTTR
+\end{compactitem}
+
+\subsection{Software und Hardware Verfügbarkeit}
+
+Softwarefehler enstehen durch Bugs im Code.
+Hardfehler fehler treten durch Abnutzung oder Herstellerfehler auf.
+
+\subsection{Software Testing Überblick}
+\begin{compactitem}
+    \item \textbf{Funktional}: Testen aller Nutzerfunktionen der Software
+    \item \textbf{Abdeckung}: Testen aller Pfade
+    \item \textbf{Random}: Testfällte werden durch Zufallsauswahl gewählt.
+    \item \textbf{Partition}: Eingabemenge wird in Strata unterteilt. Testcases werden daraus zufällig
+    gewählt.
+    \item \textbf{Statistisch}: Nutze formale zufällige Expriment Paradigma zum zufälligen Testen
+    des Usage Modells der Software
+\end{compactitem}
+
+\subsection{Erwartete Anzahl an Fehlern}
+\label{sub:Erwartete Anzahl an Fehlern}
+
+\begin{itemize}
+    \item $k$ Failures unter $n$ trials = $\binom{n}{k}$
+    \item Wahrscheinlichkeit für $k$ Fehler in $n$ Tests = $\binom{n}{k}\hat{R}^{n-k}(1-\hat{R})^k$
+    \item $\hat{R}$ ist die Reliability, $\hat{R} = \frac{n-k}{n}$
+\end{itemize}
+
+\subsection{Verlässlichkeitmodell}
+\begin{compactitem}
+    \item Mit der steigenden Anzahl erfolgreicher Tests steigt Konfidenz des ermittelten R.
+    \item Konfidenz $C[\hat{R}] = \text{Pr}[R \geq \hat{R}] = \beta$
+    \item Obere Schranke der Failure Wahrscheinlichkeit: $\tilde{p} = 1 - \sqrt[n]{(1- \beta)}$
+    \begin{compactitem}
+        \item \textbf{Bedingungen:} $n > 100$ Testfälle
+        \item Testfälle und Testdaten sind unabhängig
+        \item Fehler werden korrekt erkannt
+        \item Keine Fehler während dem testen
+        \item Repräsentatives Operationsprofil verwendet.
+    \end{compactitem}
+\end{compactitem}
+
+\subsection{Statistisches Testen Vorraussetzung}
+Statistische Testfälle werden um 3 Hauptanforderungen gebaut:
+\begin{compactitem}
+    \item Statistische Tests werden nach probabilistischen Modellen erstellt
+    \item Tests sind statistisch unabhängig von vorherigen Testläufen
+    \item Existenz eines Orakel, dass Passes und Fails bestimmt.
+\end{compactitem}
